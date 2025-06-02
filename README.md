@@ -1,7 +1,7 @@
 git clone https://github.com/docker/getting-started-app.git
 **Copia o projeto Docker do GitHub para sua máquina.**
 
-# syntax=docker/dockerfile:1
+syntax=docker/dockerfile:1
 
 FROM node:lts-alpine
 WORKDIR /app
