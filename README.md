@@ -22,31 +22,54 @@
 - docker build -t getting-started . //
 **Criando a versão atualizada do contêiner.**
 
-- docker run -dp 127.0.0.1:3000:3000 getting-started
+- docker run -dp 127.0.0.1:3000:3000 getting-started //
 **Iniciando um novo contêiner com erro, pois a porta 3000 ja está em uso.**
 
-- docker ps
+- docker ps //
 **Listando os contêiners novamente para obter o ID.**
 
-- docker stop <id-do-container>
+- docker stop <id-do-container> //
 **Comando para parar o container**
 
-- docker rm <id-do-container>
+- docker rm <id-do-container> //
 **Removendo o contâiner.**
 
-- docker run -dp 127.0.0.1:3000:3000 getting-started
-**Inciando o contêiner atualizado.**
+- docker run -dp 127.0.0.1:3000:3000 getting-started //
+**Iniciando o contêiner atualizado.**
 
 - **Criei o repositório no Docker Hub.**
 
-- docker push docker/getting-started
+- docker push docker/getting-started //
 **Tentativa falha de enviar a imagem para o docker hub.**
 
-- docker image ls
-** Verificação da tag.**
+- docker image ls //
+**Verificação da tag.**
 
-- docker tag getting-started victordevxx/getting-started
+- docker tag getting-started victordevxx/getting-started //
 **Renomeando a imagem referenciando diretamente no docker hub.**
 
-- docker push victordevxx/getting-started
+- docker push victordevxx/getting-started //
 **Enviando ao docker hub.**
+
+- docker run --rm alpine stat greeting.txt //
+**Verifiquei as propriedades do arquivo greeting.txt num container Alpine temporário que desaparece após a execução.**
+
+- docker run --rm alpine stat greeting.txt //
+**Executei um novo contêiner alpine e logo a´pós usei o stat para verificar se existia.**
+
+- docker volume create todo-db //
+**Criando um volume usando o comando acima.**
+
+- docker run -dp 127.0.0.1:3000:3000 --mount type=volume,src=todo-db,target=/etc/todos getting-started //
+**Subi o container em background com acesso pela porta 3000 e criei um volume persistente para armazenar dados.**
+
+- docker ps //
+**Novamente para pegar o id do serviço.**
+
+- docker rm -f id //
+**Para então removê-lo.**
+
+- docker volume inspect todo-db //
+**Indo a fundo para entender armazenamento de dados do Docker.**
+
+- 
