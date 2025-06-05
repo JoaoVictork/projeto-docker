@@ -72,4 +72,52 @@
 - docker volume inspect todo-db //
 **Indo a fundo para entender armazenamento de dados do Docker.**
 
-- 
+- docker run -it --mount type=bind,src="$(pwd)",target=/src ubuntu bash
+**Subi um Ubuntu temporário com acesso à sua pasta atual, pra você poder trabalhar direto no terminal dele.**
+
+- **Entrei na pasta src e criei um arquivo myfile.txt**
+
+-docker run -dp 127.0.0.1:3000:3000 \
+    -w /app --mount type=bind,src="$(pwd)",target=/app \
+    node:18-alpine \
+    sh -c "yarn install && yarn run dev"
+**Criei um container Node.js com sua pasta do projeto sincronizada, instalei as dependências e levantei o servidor de desenvolvimento de forma automatizada.** 
+
+- docker network create todo-app
+**Criei uma rede Docker nova chamada todo-app para isolar a comunicação entre containers.**
+
+- ** defini as variáveis de ambiente que o banco de dados utilizará.**
+
+- docker ps
+**para verificar o id do conteiner mysql.**
+
+- docker exec -it <mysql-container-id> mysql -u root -p
+**verificando se o banco de dados está instalado e em normal funcionamento.**
+
+- docker run -it --network todo-app nicolaka/netshoot
+**Inicie um novo contêiner usando a imagem nicolaka/netshoot.**
+
+- dig mysql
+**procurando o endereço ip**
+
+- docker exec -it <mysql-container-id> mysql -p todos
+**Verificando banco de dados.**
+
+- mysql> select * from todo_items;
+**selecionando os itens do banco de dados.**
+
+- **Criação do arquivo compose no VS CODE.**
+
+- docker compose up -d
+**Iniciando a pilha de aplicativos.**
+
+- docker image history getting-started
+**Visualizando as imagens que criei.**
+
+- docker image history --no-trunc getting-started
+**Adição de comando para ver a lista completa.**
+
+- docker build -t getting-started .
+**Criando uma nova imagem.**
+
+**Finalização do workshop analisando "O que vem a seguir".**
